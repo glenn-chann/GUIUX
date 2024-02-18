@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
+using System.Linq;
+using TMPro;
+using System;
 
 public class SettingsFunctions : MonoBehaviour
 {
@@ -14,6 +17,9 @@ public class SettingsFunctions : MonoBehaviour
     public Button Controls;
     public Button Accessibility;
 
+    public Toggle Vsync;
+    public Toggle Fullscreen;
+
     public GameObject VideoSettings;
     public GameObject AudioSettings;
     public GameObject ControlsSettings;
@@ -23,6 +29,37 @@ public class SettingsFunctions : MonoBehaviour
     public GameObject mainMenu;
 
     private PlayerCam playerCam;
+
+    Resolution[] resolutions;
+
+    int selectedResolution;
+
+    public TMP_Text resolutionLabel;
+
+    private void Start()
+    {
+        resolutions = Screen.resolutions;
+
+        if (QualitySettings.vSyncCount == 0)
+        {
+            Vsync.isOn = false;
+        }
+        else
+        {
+            Vsync.isOn = true;
+        }
+
+        Fullscreen.isOn = Screen.fullScreen;
+
+        for(int i = resolutions.Length - 1; i > 0; i--)
+        {
+            if(Screen.width == resolutions[i].width && Screen.height == resolutions[i].height && Screen.currentResolution.refreshRateRatio.CompareTo(resolutions[i].refreshRateRatio) == 0)
+            {
+                selectedResolution = i;
+                UpdateResLabel();
+            }
+        }
+    }
 
     private void Awake()
     {
@@ -102,5 +139,47 @@ public class SettingsFunctions : MonoBehaviour
                 Cursor.visible = false;
             }
         }
+    }
+
+
+    public void ResLeft()
+    {
+        selectedResolution++;
+        if (selectedResolution > resolutions.Length - 1)
+        {
+            selectedResolution = 0;
+        }
+
+        UpdateResLabel();
+    }
+
+    public void ResRight()
+    {
+        selectedResolution--;
+        if (selectedResolution < 0)
+        {
+            selectedResolution = resolutions.Length - 1;
+        }
+
+        UpdateResLabel();
+    }
+    void UpdateResLabel()
+    {
+        resolutionLabel.text = resolutions[selectedResolution].ToString();
+    }
+
+    public void ApplyButton()
+    {
+        AudioManager.Instance.PlaySfX("ButtonClick");
+        if (Vsync.isOn)
+        {
+            QualitySettings.vSyncCount = 1;
+        }
+        else
+        {
+            QualitySettings.vSyncCount = 0;
+        }
+
+        Screen.SetResolution(resolutions[selectedResolution].width, resolutions[selectedResolution].height, Fullscreen.isOn);
     }
 }
