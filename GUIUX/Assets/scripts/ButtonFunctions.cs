@@ -26,12 +26,15 @@ public class ButtonFunctions : MonoBehaviour
     }
     public void StartButton()
     {
+        AudioManager.Instance.PlaySfX("ButtonClick");
         Debug.Log("Start Button Pressed");
+        settings.SetActive(true);
         SceneManager.LoadScene("Game");
     }
 
     public void SettingButton()
     {
+        AudioManager.Instance.PlaySfX("ButtonClick");
         Debug.Log("Settings Button Pressed");
         mainMenu.SetActive(false);
         settings.SetActive(true);
@@ -40,6 +43,7 @@ public class ButtonFunctions : MonoBehaviour
 
     public void QuitButton()
     {
+        AudioManager.Instance.PlaySfX("ButtonClick");
         Debug.Log("Quit Button Pressed");
         Application.Quit();
     }

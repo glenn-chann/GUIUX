@@ -6,6 +6,8 @@ using UnityEngine.Video;
 
 public class SettingsFunctions : MonoBehaviour
 {
+    private static SettingsFunctions Instance;
+
     public Button Video;
     public Button Audio;
     public Button Controls;
@@ -15,6 +17,19 @@ public class SettingsFunctions : MonoBehaviour
     public GameObject AudioSettings;
     public GameObject ControlsSettings;
     public GameObject AccessibilitySettings;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     public void StartSettings()
     {
         DisableSettings();
