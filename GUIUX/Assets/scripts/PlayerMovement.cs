@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Animations;
+using UnityEngine.Timeline;
+using Unity.VisualScripting;
 
-public class PlayerMovement: MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
@@ -37,6 +39,15 @@ public class PlayerMovement: MonoBehaviour
     Rigidbody rb;
 
     public Animator animator;
+
+    [HideInInspector] public bool isMoving;
+    [HideInInspector] public bool isRunning;
+    [HideInInspector] public bool isCrouching;
+    [HideInInspector] public bool isProning;
+
+    public GUIController guiController;
+
+    public GameObject cameraPos;
 
     private void Start()
     {
@@ -76,25 +87,78 @@ public class PlayerMovement: MonoBehaviour
 
         if(horizontalInput != 0 || verticalInput != 0)
         {
-            animator.SetBool("isMoving", true);
+            isMoving = true;        
         }
         else
         {
-            animator.SetBool("isMoving", false);
+            isMoving = false;
         }
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && guiController.stamBar.rectTransform.sizeDelta.x > 0)
         {
-            animator.SetBool("isRunning", true);
-            moveSpeed = sprintSpeed;
+            isRunning = true;
+            if (isCrouching)
+            {
+                moveSpeed = sprintSpeed / 3;
+            }
+            else if (isProning)
+            {
+                moveSpeed = sprintSpeed / 5;
+            }
+            else
+            {
+                moveSpeed = sprintSpeed;
+            }
         }
         else
         {
-            animator.SetBool("isRunning", false);
-            moveSpeed = walkSpeed;
+            isRunning = false;
+            if (isCrouching)
+            {
+                moveSpeed = walkSpeed / 3;
+            }
+            else if (isProning)
+            {
+                moveSpeed = walkSpeed / 5;
+            }
+            else
+            {
+                moveSpeed = walkSpeed;
+            }
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftControl) && !isProning)
+        {
+            isCrouching = !isCrouching;
+            if (isCrouching)
+            {
+                cameraPos.transform.position = new Vector3(cameraPos.transform.position.x, cameraPos.transform.position.y - 4, cameraPos.transform.position.z);
+            }
+            else
+            {
+                cameraPos.transform.position = new Vector3(cameraPos.transform.position.x, cameraPos.transform.position.y + 4, cameraPos.transform.position.z);
+            }
+        
+        }
+
+        if (Input.GetKeyDown(KeyCode.C) && !isCrouching)
+        {
+            isProning = !isProning;
+            if (isProning)
+            {
+                cameraPos.transform.position = new Vector3(cameraPos.transform.position.x, cameraPos.transform.position.y - 6, cameraPos.transform.position.z);
+            }
+            else
+            {
+                cameraPos.transform.position = new Vector3(cameraPos.transform.position.x, cameraPos.transform.position.y + 6, cameraPos.transform.position.z);
+            }
+        
+        }
+
+        animator.SetBool("isMoving", isMoving);
+        animator.SetBool("isRunning", isRunning);
         // when to jump
-        if(Input.GetKey(jumpKey) && readyToJump && grounded)
+        if (Input.GetKey(jumpKey) && readyToJump && grounded)
         {
             readyToJump = false;
 
