@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Animations;
 
 public class PlayerMovement: MonoBehaviour
 {
@@ -34,6 +35,8 @@ public class PlayerMovement: MonoBehaviour
     Vector3 moveDirection;
 
     Rigidbody rb;
+
+    public Animator animator;
 
     private void Start()
     {
@@ -68,12 +71,26 @@ public class PlayerMovement: MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
+        animator.SetFloat("X", horizontalInput);
+        animator.SetFloat("Y", verticalInput);
+
+        if(horizontalInput != 0 || verticalInput != 0)
+        {
+            animator.SetBool("isMoving", true);
+        }
+        else
+        {
+            animator.SetBool("isMoving", false);
+        }
+
         if (Input.GetKey(KeyCode.LeftShift))
         {
+            animator.SetBool("isRunning", true);
             moveSpeed = sprintSpeed;
         }
         else
         {
+            animator.SetBool("isRunning", false);
             moveSpeed = walkSpeed;
         }
         // when to jump

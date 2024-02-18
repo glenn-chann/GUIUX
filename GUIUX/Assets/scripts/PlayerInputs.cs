@@ -9,7 +9,7 @@ public class PlayerInputs : MonoBehaviour
 
     private void Awake()
     {
-        settingsMenu = GameObject.Find("SettingsCanvas");
+        settingsMenu = GameObject.Find("Settings");
         playerCam = GameObject.Find("Camera").GetComponent<PlayerCam>();
     }
 
@@ -32,6 +32,7 @@ public class PlayerInputs : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            AudioManager.Instance.PlaySfX("ButtonClick");
             if (settingsMenu.activeSelf)
             {
                 playerCam.enabled = true;
@@ -48,5 +49,6 @@ public class PlayerInputs : MonoBehaviour
             }
         }
     }
+
 }
 

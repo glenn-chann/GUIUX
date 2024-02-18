@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 
 public class SettingsFunctions : MonoBehaviour
 {
@@ -17,6 +18,11 @@ public class SettingsFunctions : MonoBehaviour
     public GameObject AudioSettings;
     public GameObject ControlsSettings;
     public GameObject AccessibilitySettings;
+
+    public GameObject settings;
+    public GameObject mainMenu;
+
+    private PlayerCam playerCam;
 
     private void Awake()
     {
@@ -67,5 +73,34 @@ public class SettingsFunctions : MonoBehaviour
     {
         DisableSettings();
         AccessibilitySettings.SetActive(true);
+    }
+
+    public void CloseButton()
+    {
+        AudioManager.Instance.PlaySfX("ButtonClick");
+        if (mainMenu != null)
+        {
+            mainMenu.SetActive(true);
+            settings.SetActive(false);
+            
+        }
+        else
+        {
+            if (playerCam == null) 
+            {
+                playerCam = GameObject.Find("Camera").GetComponent<PlayerCam>();
+                playerCam.enabled = true;
+                settings.SetActive(false);
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+            else
+            {
+                playerCam.enabled = true;
+                settings.SetActive(false);
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+        }
     }
 }

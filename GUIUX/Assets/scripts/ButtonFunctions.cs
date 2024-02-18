@@ -47,4 +47,5 @@ public class ButtonFunctions : MonoBehaviour
         Debug.Log("Quit Button Pressed");
         Application.Quit();
     }
+
 }
