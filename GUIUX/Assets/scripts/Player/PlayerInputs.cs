@@ -68,13 +68,13 @@ public class PlayerInputs : MonoBehaviour
             }
             else
             {
-                InventoryManager.Instance.ListItems();
                 inMenu = true;
                 playerCam.enabled = false;
                 InvCraftMenu.SetActive(true);
                 GUI.SetActive(false);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+                InventoryManager.Instance.ListItems();
             }
         }
     }

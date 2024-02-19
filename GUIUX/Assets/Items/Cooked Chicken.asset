@@ -16,3 +16,4 @@ MonoBehaviour:
   itemName: Cooked Chicken
   value: 50
   icon: {fileID: 21300000, guid: 2975e37244cb6414db847c8e4c32f787, type: 3}
+  itemType: 0
