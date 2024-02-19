@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -14,7 +15,6 @@ public class InventoryManager : MonoBehaviour
 
     public Item food;
     public Item stick;
-
 
     public InventoryItemController[] InventoryItems;
     private void Awake()
@@ -49,7 +49,6 @@ public class InventoryManager : MonoBehaviour
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
         }
-
         SetInventoryItems();
     }
 

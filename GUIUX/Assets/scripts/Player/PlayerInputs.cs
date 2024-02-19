@@ -13,6 +13,8 @@ public class PlayerInputs : MonoBehaviour
 
     bool inMenu;
 
+    public Crafting crafting;
+
     private void Awake()
     {
         settingsMenu = GameObject.Find("Settings");
@@ -75,6 +77,7 @@ public class PlayerInputs : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 InventoryManager.Instance.ListItems();
+                crafting.UpdateColor();
             }
         }
     }
