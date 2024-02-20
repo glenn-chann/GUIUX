@@ -20,11 +20,35 @@ public class BuildingMenuController : MonoBehaviour
     public GameObject redCover;
 
     public InventoryManager invManager;
+    public PlayerInputs playerInputs;
 
     bool isCraftable;
+    bool building;
     int NoOfStick;
 
+    GameObject campfire;
+
+    GameObject crosshair;
+
     List<Item> itemsToRemove = new List<Item>();
+
+    Vector3 prevPoint;
+
+    private void Start()
+    {
+        crosshair = GameObject.Find("crosshair");
+    }
+    private void Update()
+    {
+        if(building)
+        {
+            UpdateCampfirePosition();
+        }
+        if(Input.GetMouseButtonDown(0))
+        {
+            building = false;
+        }
+    }
     public void RightArrow()
     {
         AudioManager.Instance.PlaySfX("ButtonClick");
@@ -34,11 +58,6 @@ public class BuildingMenuController : MonoBehaviour
             currentItem = 0;
         }
         UpdateBuildMenu();
-    }
-
-    private void Update()
-    {
-        CreateCampfireHologram();
     }
 
     public void LeftArrow()
@@ -80,7 +99,7 @@ public class BuildingMenuController : MonoBehaviour
         }
         foreach (var item in invManager.Items)
         {
-            if (item.id == 2)
+            if (item.id == 2 && NoOfStick < 3)
             {
                 NoOfStick++;
                 itemsToRemove.Add(item);
@@ -101,20 +120,46 @@ public class BuildingMenuController : MonoBehaviour
 
     public void BuildCampfireBtn()
     {
-        if (isCraftable)
+        if (isCraftable && CreateCampfireHologram())
         {
-            
+            foreach (var item in itemsToRemove)
+            {
+                invManager.Remove(item);
+            }
+            isCraftable = false;
+            InventoryManager.Instance.DestroyItems();
         }
+        UpdateCover();
+        playerInputs.buildingMenu.SetActive(false);
+        playerInputs.book.SetActive(false);
+        playerInputs.enableMouse();
+        building = true;
     }
 
-    void CreateCampfireHologram()
+    bool CreateCampfireHologram()
     {
         RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        
-        if (Physics.Raycast(ray, out hit))
+        Ray ray = Camera.main.ScreenPointToRay(crosshair.transform.position);
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("ground")))
         {
-            Instantiate(campfirePrefab, hit.transform.position, Quaternion.identity);
+            Debug.Log(hit.collider.name);
+            Debug.Log(hit.transform.position);
+            campfire = Instantiate(campfirePrefab, hit.point, Quaternion.identity);
+            prevPoint = hit.point;
+            return true;
+        }
+        return false;
+    }
+
+    void UpdateCampfirePosition()
+    {
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(crosshair.transform.position);
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("ground")) && hit.point != prevPoint)
+        {
+            campfire.transform.position = hit.point;
         }
     }
 }

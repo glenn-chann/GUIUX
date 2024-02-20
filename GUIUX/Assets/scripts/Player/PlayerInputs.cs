@@ -12,8 +12,8 @@ public class PlayerInputs : MonoBehaviour
 
     private GameObject InvCraftMenu;
 
-    private GameObject buildingMenu;
-    private GameObject book;
+    [HideInInspector] public GameObject buildingMenu;
+    [HideInInspector] public GameObject book;
 
     bool inMenu;
 
@@ -73,7 +73,7 @@ public class PlayerInputs : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             AudioManager.Instance.PlaySfX("ButtonClick");
-            if (InvCraftMenu.activeSelf || inMenu)
+            if (InvCraftMenu.activeSelf)
             {
                 InvCraftMenu.SetActive(false);
                 enableMouse();
@@ -91,7 +91,7 @@ public class PlayerInputs : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Mouse1))
         {
             AudioManager.Instance.PlaySfX("ButtonClick");
-            if (radialMenu.activeSelf || inMenu)
+            if (radialMenu.activeSelf)
             {
                 radialMenu.SetActive(false);
                 enableMouse();
@@ -112,7 +112,7 @@ public class PlayerInputs : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B))
         {
             AudioManager.Instance.PlaySfX("ButtonClick");
-            if (buildingMenu.activeSelf || inMenu)
+            if (buildingMenu.activeSelf)
             {
                 buildingMenu.SetActive(false);
                 book.SetActive(false);
@@ -139,7 +139,7 @@ public class PlayerInputs : MonoBehaviour
         enableMouse();
     }
 
-    void enableMouse()
+    public void enableMouse()
     {
         inMenu = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -148,7 +148,7 @@ public class PlayerInputs : MonoBehaviour
         GUI.SetActive(true);
     }
 
-    void disableMouse()
+    public void disableMouse()
     {
         inMenu = true;
         Cursor.lockState = CursorLockMode.None;

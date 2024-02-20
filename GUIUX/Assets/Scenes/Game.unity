@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 2363157}
   - component: {fileID: 2363156}
   - component: {fileID: 2363160}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: BuildingCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,12 +249,13 @@ MonoBehaviour:
     Title: Campfire
     Description: a fire at a campsite that provides light and warmth, and heat for
       cooking
-  campfirePrefab: {fileID: 6258991218409019183, guid: e4f26a2795077c749a9c01f2c33c797d, type: 3}
+  campfirePrefab: {fileID: 841498523975272560, guid: 4844a5fd22636f042b81794a92bc5858, type: 3}
   image: {fileID: 20369482}
   title: {fileID: 57199021}
   desc: {fileID: 510687945}
   redCover: {fileID: 1120819028}
   invManager: {fileID: 12410160}
+  playerInputs: {fileID: 531662723}
 --- !u!1001 &9256892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -347,6 +348,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 5aad757af3cf17649b4632e6a26d86e2, type: 3}
+    - target: {fileID: 5197460761389339090, guid: 5208ba432c5586d41989c0bcb1f1aa01, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6035634419223487705, guid: 5208ba432c5586d41989c0bcb1f1aa01, type: 3}
       propertyPath: m_text
       value: Ghillie Suit
@@ -354,6 +359,14 @@ PrefabInstance:
     - target: {fileID: 6672555315042624494, guid: 5208ba432c5586d41989c0bcb1f1aa01, type: 3}
       propertyPath: m_Name
       value: Item (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672555315042624494, guid: 5208ba432c5586d41989c0bcb1f1aa01, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6776634811806578863, guid: 5208ba432c5586d41989c0bcb1f1aa01, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -378,7 +391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 12410161}
   - component: {fileID: 12410160}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: InventoryManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,7 +443,7 @@ GameObject:
   - component: {fileID: 20369483}
   - component: {fileID: 20369482}
   - component: {fileID: 20369481}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -499,7 +512,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 20369482}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2363160}
+        m_TargetAssemblyTypeName: BuildingMenuController, Assembly-CSharp
+        m_MethodName: BuildCampfireBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &20369482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -554,7 +579,7 @@ GameObject:
   - component: {fileID: 57199020}
   - component: {fileID: 57199022}
   - component: {fileID: 57199021}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1207,7 +1232,7 @@ GameObject:
   - component: {fileID: 136177621}
   - component: {fileID: 136177623}
   - component: {fileID: 136177622}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Divider (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1290,7 +1315,7 @@ GameObject:
   - component: {fileID: 189273506}
   - component: {fileID: 189273510}
   - component: {fileID: 189273511}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1578,7 +1603,7 @@ GameObject:
   - component: {fileID: 228962587}
   - component: {fileID: 228962589}
   - component: {fileID: 228962588}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1726,7 +1751,7 @@ GameObject:
   - component: {fileID: 321784420}
   - component: {fileID: 321784422}
   - component: {fileID: 321784421}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1799,7 +1824,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 326026419}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1937,7 +1962,7 @@ GameObject:
   - component: {fileID: 465561718}
   - component: {fileID: 465561720}
   - component: {fileID: 465561719}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2012,7 +2037,7 @@ GameObject:
   - component: {fileID: 479525974}
   - component: {fileID: 479525976}
   - component: {fileID: 479525975}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Stam Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2205,6 +2230,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5197460761389339090, guid: 5208ba432c5586d41989c0bcb1f1aa01, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6035634419223487705, guid: 5208ba432c5586d41989c0bcb1f1aa01, type: 3}
       propertyPath: m_text
       value: Pickaxe
@@ -2212,6 +2241,14 @@ PrefabInstance:
     - target: {fileID: 6672555315042624494, guid: 5208ba432c5586d41989c0bcb1f1aa01, type: 3}
       propertyPath: m_Name
       value: Item
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672555315042624494, guid: 5208ba432c5586d41989c0bcb1f1aa01, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6776634811806578863, guid: 5208ba432c5586d41989c0bcb1f1aa01, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2276,7 +2313,7 @@ GameObject:
   - component: {fileID: 506494943}
   - component: {fileID: 506494945}
   - component: {fileID: 506494944}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2351,7 +2388,7 @@ GameObject:
   - component: {fileID: 510687944}
   - component: {fileID: 510687946}
   - component: {fileID: 510687945}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2487,7 +2524,7 @@ GameObject:
   - component: {fileID: 528135912}
   - component: {fileID: 528135914}
   - component: {fileID: 528135913}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2660,6 +2697,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb73e74217911b1499b111a5d45eb12f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingMenu: {fileID: 0}
+  book: {fileID: 0}
   crafting: {fileID: 189273510}
   equip: {fileID: 189273511}
   inventoryManager: {fileID: 12410160}
@@ -2790,7 +2829,7 @@ GameObject:
   - component: {fileID: 547441217}
   - component: {fileID: 547441216}
   - component: {fileID: 547441215}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Pickaxe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2921,7 +2960,7 @@ GameObject:
   - component: {fileID: 586150032}
   - component: {fileID: 586150034}
   - component: {fileID: 586150033}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Divider (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3089,7 +3128,7 @@ GameObject:
   - component: {fileID: 589769271}
   - component: {fileID: 589769270}
   - component: {fileID: 589769269}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3288,7 +3327,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 741751860}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Radial Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3324,7 +3363,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 745161499}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: water bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3762,7 +3801,7 @@ GameObject:
   - component: {fileID: 860908371}
   - component: {fileID: 860908370}
   - component: {fileID: 860908369}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3833,7 +3872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 6f4b9214b0fbf6749a2aa0d49b616c45, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6f4b9214b0fbf6749a2aa0d49b616c45, type: 3}
       propertyPath: m_LocalScale.x
@@ -3947,7 +3986,7 @@ GameObject:
   - component: {fileID: 916448564}
   - component: {fileID: 916448566}
   - component: {fileID: 916448565}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4027,7 +4066,7 @@ GameObject:
   - component: {fileID: 935703768}
   - component: {fileID: 935703770}
   - component: {fileID: 935703769}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Divider (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4102,7 +4141,7 @@ GameObject:
   - component: {fileID: 937921731}
   - component: {fileID: 937921733}
   - component: {fileID: 937921732}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4178,6 +4217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickAxeV1
       objectReference: {fileID: 0}
+    - target: {fileID: 2651747729594002529, guid: fcdb12c0011022649b9ec1569d29917d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3424765613553645275, guid: fcdb12c0011022649b9ec1569d29917d, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.5000002
@@ -4246,7 +4289,7 @@ GameObject:
   - component: {fileID: 977355759}
   - component: {fileID: 977355761}
   - component: {fileID: 977355760}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4360,7 +4403,7 @@ GameObject:
   - component: {fileID: 1029645401}
   - component: {fileID: 1029645403}
   - component: {fileID: 1029645402}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: sound bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4521,7 +4564,7 @@ GameObject:
   - component: {fileID: 1120819029}
   - component: {fileID: 1120819031}
   - component: {fileID: 1120819030}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Cover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4829,6 +4872,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: d964dc6938171574ea7f5d16b1196683, type: 3}
+    - target: {fileID: 5197460761389339090, guid: 5208ba432c5586d41989c0bcb1f1aa01, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6035634419223487705, guid: 5208ba432c5586d41989c0bcb1f1aa01, type: 3}
       propertyPath: m_text
       value: Shovel
@@ -4836,6 +4883,14 @@ PrefabInstance:
     - target: {fileID: 6672555315042624494, guid: 5208ba432c5586d41989c0bcb1f1aa01, type: 3}
       propertyPath: m_Name
       value: Item (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672555315042624494, guid: 5208ba432c5586d41989c0bcb1f1aa01, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6776634811806578863, guid: 5208ba432c5586d41989c0bcb1f1aa01, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4861,7 +4916,7 @@ GameObject:
   - component: {fileID: 1194703463}
   - component: {fileID: 1194703465}
   - component: {fileID: 1194703464}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4941,7 +4996,7 @@ GameObject:
   - component: {fileID: 1198798690}
   - component: {fileID: 1198798694}
   - component: {fileID: 1198798693}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -5102,7 +5157,7 @@ GameObject:
   - component: {fileID: 1210469192}
   - component: {fileID: 1210469191}
   - component: {fileID: 1210469190}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Viewport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5189,7 +5244,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1253701888}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: BuildingMenuUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5229,6 +5284,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1198798687}
     m_Modifications:
+    - target: {fileID: 1366589786014548, guid: 2003259857fd3f940bcd53bbb9131ca9, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4307756348346272, guid: 2003259857fd3f940bcd53bbb9131ca9, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -5281,7 +5340,7 @@ GameObject:
   - component: {fileID: 1294967697}
   - component: {fileID: 1294967699}
   - component: {fileID: 1294967698}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5367,7 +5426,7 @@ GameObject:
   - component: {fileID: 1435660992}
   - component: {fileID: 1435660991}
   - component: {fileID: 1435660990}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5530,7 +5589,7 @@ GameObject:
   - component: {fileID: 1553101742}
   - component: {fileID: 1553101741}
   - component: {fileID: 1553101740}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Crafting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5637,7 +5696,7 @@ GameObject:
   - component: {fileID: 1581341827}
   - component: {fileID: 1581341829}
   - component: {fileID: 1581341828}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5953,7 +6012,7 @@ GameObject:
   - component: {fileID: 1706454557}
   - component: {fileID: 1706454559}
   - component: {fileID: 1706454558}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6191,6 +6250,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 41f845fc7aacb844eae7f1daa945a906, type: 3}
+    - target: {fileID: 5197460761389339090, guid: 5208ba432c5586d41989c0bcb1f1aa01, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6035634419223487705, guid: 5208ba432c5586d41989c0bcb1f1aa01, type: 3}
       propertyPath: m_text
       value: Axe
@@ -6198,6 +6261,14 @@ PrefabInstance:
     - target: {fileID: 6672555315042624494, guid: 5208ba432c5586d41989c0bcb1f1aa01, type: 3}
       propertyPath: m_Name
       value: Item (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672555315042624494, guid: 5208ba432c5586d41989c0bcb1f1aa01, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6776634811806578863, guid: 5208ba432c5586d41989c0bcb1f1aa01, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6281,7 +6352,7 @@ GameObject:
   - component: {fileID: 1826702917}
   - component: {fileID: 1826702916}
   - component: {fileID: 1826702915}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Viewport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6368,7 +6439,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1831003727}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: food bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6408,7 +6479,7 @@ GameObject:
   - component: {fileID: 1884339677}
   - component: {fileID: 1884339676}
   - component: {fileID: 1884339675}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6515,7 +6586,7 @@ GameObject:
   - component: {fileID: 1895878933}
   - component: {fileID: 1895878935}
   - component: {fileID: 1895878934}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6598,7 +6669,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1933286539}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Inventory&Crafting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6722,7 +6793,7 @@ GameObject:
   - component: {fileID: 2000073780}
   - component: {fileID: 2000073782}
   - component: {fileID: 2000073781}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: visibility bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6798,7 +6869,7 @@ GameObject:
   - component: {fileID: 2016686259}
   - component: {fileID: 2016686261}
   - component: {fileID: 2016686260}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: CraftingTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6932,7 +7003,7 @@ GameObject:
   - component: {fileID: 2068439394}
   - component: {fileID: 2068439396}
   - component: {fileID: 2068439395}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7058,7 +7129,7 @@ GameObject:
   - component: {fileID: 2116637874}
   - component: {fileID: 2116637876}
   - component: {fileID: 2116637875}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7137,7 +7208,7 @@ GameObject:
   - component: {fileID: 2125855408}
   - component: {fileID: 2125855410}
   - component: {fileID: 2125855409}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: InventoryTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7271,7 +7342,7 @@ GameObject:
   - component: {fileID: 2137875635}
   - component: {fileID: 2137875637}
   - component: {fileID: 2137875636}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Divider (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
