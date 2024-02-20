@@ -21,7 +21,10 @@ public class InventoryManager : MonoBehaviour
     {
         Instance = this;
         Add(food);
-        Add(stick);
+        for(int i =0; i < 4; i++)
+        {
+            Add(stick);
+        }
     }
 
     public void Add(Item item)

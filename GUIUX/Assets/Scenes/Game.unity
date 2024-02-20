@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 2363158}
   - component: {fileID: 2363157}
   - component: {fileID: 2363156}
+  - component: {fileID: 2363160}
   m_Layer: 5
   m_Name: BuildingCanvas
   m_TagString: Untagged
@@ -225,6 +226,35 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2363160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2363155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4648637efcd393d4088477f8ae4015bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bItems:
+  - Id: 1
+    Image: {fileID: 21300000, guid: abff2151af217c642be09e8510aa45db, type: 3}
+    Title: Log Cabin
+    Description: small house built of logs notched at the ends and laid one upon
+      another with the spaces filled with plaster, moss, mortar, mud, or dried manure.
+  - Id: 2
+    Image: {fileID: 21300000, guid: 9402dfdc525e7894a85d7d2f041738cb, type: 3}
+    Title: Campfire
+    Description: a fire at a campsite that provides light and warmth, and heat for
+      cooking
+  campfirePrefab: {fileID: 6258991218409019183, guid: e4f26a2795077c749a9c01f2c33c797d, type: 3}
+  image: {fileID: 20369482}
+  title: {fileID: 57199021}
+  desc: {fileID: 510687945}
+  redCover: {fileID: 1120819028}
+  invManager: {fileID: 12410160}
 --- !u!1001 &9256892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -415,7 +445,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20369479}
   m_LocalRotation: {x: 0.17348288, y: -0.042956725, z: 0.007574429, w: 0.98387045}
-  m_LocalPosition: {x: 0, y: 0, z: 395}
+  m_LocalPosition: {x: 0, y: 0, z: 321}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -423,7 +453,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 20, y: -5, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -885, y: -221}
+  m_AnchoredPosition: {x: -831, y: -243}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &20369481
@@ -490,7 +520,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: abff2151af217c642be09e8510aa45db, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -539,7 +569,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 57199019}
   m_LocalRotation: {x: 0.17348288, y: -0.042956725, z: 0.007574429, w: 0.98387045}
-  m_LocalPosition: {x: 0, y: 0, z: 408}
+  m_LocalPosition: {x: 0, y: 0, z: 380}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -547,8 +577,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 20, y: -5, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -492, y: -116}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -415, y: -115}
+  m_SizeDelta: {x: 350, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &57199021
 MonoBehaviour:
@@ -570,7 +600,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Title
+  m_text: Lorem ipsum
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a9420a9e9c4d12c409b598fc43d6e06d, type: 2}
   m_sharedMaterial: {fileID: 7234570531551621919, guid: a9420a9e9c4d12c409b598fc43d6e06d, type: 2}
@@ -597,8 +627,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2336,7 +2366,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 510687943}
   m_LocalRotation: {x: 0.17348288, y: -0.042956725, z: 0.007574429, w: 0.98387045}
-  m_LocalPosition: {x: 0, y: 0, z: 384.99994}
+  m_LocalPosition: {x: 0, y: 0, z: 360}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2344,8 +2374,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 20, y: -5, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -494.00003, y: -176.3}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -415, y: -175}
+  m_SizeDelta: {x: 350, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &510687945
 MonoBehaviour:
@@ -2367,7 +2397,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tristique
+    non orci ac dictum. In nec eros arcu. Maecenas in malesuada quam, non commodo
+    neque. Curabitur aliquet semper quam id mattis. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a9420a9e9c4d12c409b598fc43d6e06d, type: 2}
   m_sharedMaterial: {fileID: 7234570531551621919, guid: a9420a9e9c4d12c409b598fc43d6e06d, type: 2}
@@ -2394,8 +2426,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2630,6 +2662,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crafting: {fileID: 189273510}
   equip: {fileID: 189273511}
+  inventoryManager: {fileID: 12410160}
+  buildingMenuController: {fileID: 2363160}
 --- !u!114 &531662724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3124,7 +3158,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 589769270}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2363160}
+        m_TargetAssemblyTypeName: BuildingMenuController, Assembly-CSharp
+        m_MethodName: LeftArrow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &589769270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4464,6 +4510,81 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52a80cadc219314489b01f1b5a48639c, type: 3}
+--- !u!1 &1120819028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1120819029}
+  - component: {fileID: 1120819031}
+  - component: {fileID: 1120819030}
+  m_Layer: 5
+  m_Name: Cover
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1120819029
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120819028}
+  m_LocalRotation: {x: 0.17348288, y: -0.042956725, z: 0.007574429, w: 0.98387045}
+  m_LocalPosition: {x: 0, y: 0, z: -215}
+  m_LocalScale: {x: 5, y: 3.2, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1253701888}
+  m_LocalEulerAnglesHint: {x: 20, y: -5, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -420, y: -155}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1120819030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120819028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.29411766}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1120819031
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120819028}
+  m_CullTransparentMesh: 1
 --- !u!1 &1125776169 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2651747729594002529, guid: fcdb12c0011022649b9ec1569d29917d, type: 3}
@@ -5092,6 +5213,7 @@ RectTransform:
   - {fileID: 20369480}
   - {fileID: 57199020}
   - {fileID: 510687944}
+  - {fileID: 1120819029}
   m_Father: {fileID: 2363159}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -5314,7 +5436,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1435660991}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2363160}
+        m_TargetAssemblyTypeName: BuildingMenuController, Assembly-CSharp
+        m_MethodName: RightArrow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1435660991
 MonoBehaviour:
   m_ObjectHideFlags: 0

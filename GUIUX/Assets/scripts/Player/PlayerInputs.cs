@@ -20,6 +20,7 @@ public class PlayerInputs : MonoBehaviour
     public Crafting crafting;
     public Equip equip;
     public InventoryManager inventoryManager;
+    public BuildingMenuController buildingMenuController;
 
     private void Awake()
     {
@@ -62,7 +63,7 @@ public class PlayerInputs : MonoBehaviour
             {
                 CloseAllMenus();
             }
-            else
+            else if (!inMenu)
             {
                 disableMouse();
                 settingsMenu.SetActive(true);
@@ -78,7 +79,7 @@ public class PlayerInputs : MonoBehaviour
                 enableMouse();
                 InventoryManager.Instance.DestroyItems();
             }
-            else
+            else if (!inMenu)
             {
                 InvCraftMenu.SetActive(true);
                 disableMouse();
@@ -100,7 +101,7 @@ public class PlayerInputs : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             AudioManager.Instance.PlaySfX("ButtonClick");
-            if (!radialMenu.activeSelf || !inMenu)
+            if (!inMenu)
             {
                 radialMenu.SetActive(true);
                 disableMouse();
@@ -117,9 +118,10 @@ public class PlayerInputs : MonoBehaviour
                 book.SetActive(false);
                 enableMouse();
             }
-            else
+            else if (!inMenu)
             {
                 buildingMenu.SetActive(true);
+                buildingMenuController.UpdateBuildMenu();
                 book.SetActive(true);
                 disableMouse();
                 crafting.UpdateColor();
@@ -131,6 +133,9 @@ public class PlayerInputs : MonoBehaviour
     {
         settingsMenu.SetActive(false);
         InvCraftMenu.SetActive(false);
+        radialMenu.SetActive(false);
+        book.SetActive(false);
+        buildingMenu.SetActive(false);
         enableMouse();
     }
 

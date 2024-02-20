@@ -144,6 +144,7 @@ public class SettingsFunctions : MonoBehaviour
 
     public void ResLeft()
     {
+        AudioManager.Instance.PlaySfX("ButtonClick");
         selectedResolution++;
         if (selectedResolution > resolutions.Length - 1)
         {
@@ -155,6 +156,7 @@ public class SettingsFunctions : MonoBehaviour
 
     public void ResRight()
     {
+        AudioManager.Instance.PlaySfX("ButtonClick");
         selectedResolution--;
         if (selectedResolution < 0)
         {
