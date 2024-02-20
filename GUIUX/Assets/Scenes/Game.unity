@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 2363157}
   - component: {fileID: 2363156}
   - component: {fileID: 2363160}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: BuildingCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +249,8 @@ MonoBehaviour:
     Title: Campfire
     Description: a fire at a campsite that provides light and warmth, and heat for
       cooking
-  campfirePrefab: {fileID: 841498523975272560, guid: 4844a5fd22636f042b81794a92bc5858, type: 3}
+  campfirePrefab: {fileID: 8004650009213682454, guid: 08183bb2c5c52cc4c9e4c46a92b604f6, type: 3}
+  campfireLitPrefab: {fileID: 6258991218409019183, guid: e4f26a2795077c749a9c01f2c33c797d, type: 3}
   image: {fileID: 20369482}
   title: {fileID: 57199021}
   desc: {fileID: 510687945}
@@ -443,7 +444,7 @@ GameObject:
   - component: {fileID: 20369483}
   - component: {fileID: 20369482}
   - component: {fileID: 20369481}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -579,7 +580,7 @@ GameObject:
   - component: {fileID: 57199020}
   - component: {fileID: 57199022}
   - component: {fileID: 57199021}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2388,7 +2389,7 @@ GameObject:
   - component: {fileID: 510687944}
   - component: {fileID: 510687946}
   - component: {fileID: 510687945}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3128,7 +3129,7 @@ GameObject:
   - component: {fileID: 589769271}
   - component: {fileID: 589769270}
   - component: {fileID: 589769269}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3872,7 +3873,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 6f4b9214b0fbf6749a2aa0d49b616c45, type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6f4b9214b0fbf6749a2aa0d49b616c45, type: 3}
       propertyPath: m_LocalScale.x
@@ -4564,7 +4565,7 @@ GameObject:
   - component: {fileID: 1120819029}
   - component: {fileID: 1120819031}
   - component: {fileID: 1120819030}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: Cover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5244,7 +5245,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1253701888}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: BuildingMenuUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5426,7 +5427,7 @@ GameObject:
   - component: {fileID: 1435660992}
   - component: {fileID: 1435660991}
   - component: {fileID: 1435660990}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}

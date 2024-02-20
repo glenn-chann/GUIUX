@@ -10,6 +10,7 @@ public class BuildingMenuController : MonoBehaviour
     public List<BuildableItems> bItems;
 
     public GameObject campfirePrefab;
+    public GameObject campfireLitPrefab;
 
     int currentItem = 0;
 
@@ -43,10 +44,12 @@ public class BuildingMenuController : MonoBehaviour
         if(building)
         {
             UpdateCampfirePosition();
-        }
-        if(Input.GetMouseButtonDown(0))
-        {
-            building = false;
+            if (Input.GetMouseButtonDown(0))
+            {
+                building = false;
+                Instantiate(campfireLitPrefab, campfire.transform.position, Quaternion.identity);
+                Destroy(campfire);
+            }
         }
     }
     public void RightArrow()
