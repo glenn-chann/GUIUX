@@ -14,7 +14,7 @@ public class Crafting : MonoBehaviour
 
     bool isCraftable = false;
 
-    bool pickaxeCrafted = false;
+    [HideInInspector] public bool pickaxeCrafted = false;
     public void PickaxeButton()
     {
         Debug.Log("Pressed");
@@ -25,6 +25,7 @@ public class Crafting : MonoBehaviour
                 inventoryManager.Remove(item);
             }
             isCraftable = false;
+            InventoryManager.Instance.DestroyItems();
             inventoryManager.ListItems();
             UpdateColor();
             pickaxeCrafted = true;
@@ -39,7 +40,7 @@ public class Crafting : MonoBehaviour
         }
         foreach (var item in inventoryManager.Items)
         {
-            if (item.id == 1)
+            if (item.id == 1 && NoOfStone < 2)
             {
                 NoOfStone++;
                 itemsToRemove.Add(item);
@@ -50,7 +51,7 @@ public class Crafting : MonoBehaviour
                 itemsToRemove.Add(item);
             }
         }
-        if (NoOfStone == 2 && NoOfStick == 1)
+        if (NoOfStone >= 2 && NoOfStick >= 1)
         {
             Debug.Log("Enough");
             isCraftable = true;

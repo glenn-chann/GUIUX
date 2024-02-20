@@ -36,10 +36,6 @@ public class InventoryManager : MonoBehaviour
 
     public void ListItems()
     {
-        foreach (Transform item in ItemContent)
-        {
-            Destroy(item.gameObject);
-        }
         foreach (var item in Items) 
         {
             GameObject obj = Instantiate(InventoryItem, ItemContent);
@@ -59,6 +55,14 @@ public class InventoryManager : MonoBehaviour
         for (int i = 0; i < Items.Count; i++)
         {
             InventoryItems[i].AddItem(Items[i]);
+        }
+    }
+
+    public void DestroyItems()
+    {
+        foreach (Transform item in ItemContent)
+        {
+            Destroy(item.gameObject);
         }
     }
 }

@@ -5,19 +5,28 @@ using UnityEngine;
 public class PlayerInputs : MonoBehaviour
 {
     private GameObject settingsMenu;
+    private GameObject radialMenu;
     private PlayerCam playerCam;
 
     private GameObject GUI;
 
     private GameObject InvCraftMenu;
 
+    private GameObject buildingMenu;
+    private GameObject book;
+
     bool inMenu;
 
     public Crafting crafting;
+    public Equip equip;
+    public InventoryManager inventoryManager;
 
     private void Awake()
     {
         settingsMenu = GameObject.Find("Settings");
+        radialMenu = GameObject.Find("Radial Menu");
+        buildingMenu = GameObject.Find("BuildingMenuUI");
+        book = GameObject.Find("BuildingMenu");
         GUI = GameObject.Find("GUI");
         InvCraftMenu = GameObject.Find("Inventory&Crafting");
         playerCam = GameObject.Find("Camera").GetComponent<PlayerCam>();
@@ -32,6 +41,9 @@ public class PlayerInputs : MonoBehaviour
             settingsMenu.SetActive(false);
         }
         InvCraftMenu.SetActive(false);
+        radialMenu.SetActive(false);
+        buildingMenu.SetActive(false);
+        book.SetActive(false);
         GUI.SetActive(true);
     }
 
@@ -52,12 +64,8 @@ public class PlayerInputs : MonoBehaviour
             }
             else
             {
-                inMenu = true;
-                playerCam.enabled = false;
+                disableMouse();
                 settingsMenu.SetActive(true);
-                GUI.SetActive(false);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
             }
         }
 
@@ -66,17 +74,54 @@ public class PlayerInputs : MonoBehaviour
             AudioManager.Instance.PlaySfX("ButtonClick");
             if (InvCraftMenu.activeSelf || inMenu)
             {
-                CloseAllMenus();
+                InvCraftMenu.SetActive(false);
+                enableMouse();
+                InventoryManager.Instance.DestroyItems();
             }
             else
             {
-                inMenu = true;
-                playerCam.enabled = false;
                 InvCraftMenu.SetActive(true);
-                GUI.SetActive(false);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+                disableMouse();
                 InventoryManager.Instance.ListItems();
+                crafting.UpdateColor();
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.Mouse1))
+        {
+            AudioManager.Instance.PlaySfX("ButtonClick");
+            if (radialMenu.activeSelf || inMenu)
+            {
+                radialMenu.SetActive(false);
+                enableMouse();
+            }
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            AudioManager.Instance.PlaySfX("ButtonClick");
+            if (!radialMenu.activeSelf || !inMenu)
+            {
+                radialMenu.SetActive(true);
+                disableMouse();
+                equip.DisablePickaxeBtn();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            AudioManager.Instance.PlaySfX("ButtonClick");
+            if (buildingMenu.activeSelf || inMenu)
+            {
+                buildingMenu.SetActive(false);
+                book.SetActive(false);
+                enableMouse();
+            }
+            else
+            {
+                buildingMenu.SetActive(true);
+                book.SetActive(true);
+                disableMouse();
                 crafting.UpdateColor();
             }
         }
@@ -84,14 +129,27 @@ public class PlayerInputs : MonoBehaviour
 
     void CloseAllMenus()
     {
-        inMenu = false;
         settingsMenu.SetActive(false);
         InvCraftMenu.SetActive(false);
+        enableMouse();
+    }
+
+    void enableMouse()
+    {
+        inMenu = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         playerCam.enabled = true;
         GUI.SetActive(true);
     }
 
+    void disableMouse()
+    {
+        inMenu = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        playerCam.enabled = false;
+        GUI.SetActive(false);  
+    }
 }
 
